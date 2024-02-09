@@ -1,0 +1,99 @@
+/* index.css */
+/* Carlos Valdez */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+.box-of-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap-reverse;
+
+    justify-content: center;
+    max-width: 80vw;
+
+    margin: 50px 0;
+}
+
+.text-content {
+    max-width: 30vw;
+}
+
+#header-content {
+    display: flex;
+    flex-direction: column;
+
+    flex: 2;
+}
+
+#header {
+    height: 15vh;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+
+}
+
+#side-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 250px;
+
+    max-width: 300px;
+
+    width: 100vw;
+}
+
+@media only screen and (min-width: 661px) {
+    #side-view {position: sticky; position: -webkit-sticky; top:0; height: 100vh;}
+}
+
+#socials {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.footer-socials-logo {
+    margin: 15px 0;
+}
+
+.list-footer {
+    list-style: none;
+}
+
+#footer-socials-logo-linkedin {
+    filter: brightness(0);
+}
+
+.photo-border {
+    border: black 3px solid;
+    border-radius: 20px;
+}
+
+#all-of-it {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-category {
+    text-align: center;
+}
