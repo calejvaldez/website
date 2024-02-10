@@ -17,7 +17,7 @@ npm install -g sass
 Once installed, you can run it from the terminal. I make it so that it refreshes while I'm still coding:
 
 ```bash
-sass --watch index.scss index.css
+sass --watch public:public
 ```
 
 For more information, please consult [the documentation](https://sass-lang.com/documentation/).
