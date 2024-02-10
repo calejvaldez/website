@@ -2,98 +2,110 @@
 /* Carlos Valdez */
 body {
     font-family: Arial, Helvetica, sans-serif;
-}
+    margin: 0;
 
-#content {
     display: flex;
     flex-direction: row;
-
-    flex-wrap: wrap;
-
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+#flex-top-to-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media only screen and (min-width: 661px) {
+        min-height: 100dvh;
+    }
 }
 
 .box-of-content {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     flex-wrap:wrap-reverse;
 
-    justify-content: center;
-    max-width: 80vw;
-
+    max-width: 80dvw;
     margin: 50px 0;
 }
 
 .text-content {
-    max-width: 30vw;
+    max-width: 250px;
 }
 
-#header-content {
-    display: flex;
-    flex-direction: column;
+@mixin remove-decor {
+    text-decoration: none;
+    color: black;
+}
 
+#flex-left-to-right {
+    /*
+    Works with two sections:
+    1. Section with the header and content
+    2. Section with the side bar
+    */
+    display: flex;
     flex: 2;
-}
-
-#header {
-    height: 15vh;
-
-    text-align: center;
-
-    display: flex;
     flex-direction: column;
-    
-    justify-content: center;
-    align-items: center;
-
 }
 
 #side-view {
+    /*Regular, mobile mode*/
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
 
-    min-width: 250px;
+    width: 300px;
+    min-height: 200px;
 
-    max-width: 300px;
+    @media only screen and (min-width: 661px) {
+        /*Desktop mode*/
+        #side-view {
+            position: sticky;
+            position: -webkit-sticky;
+            height: 100dvh;
+        }
+    }
 
-    width: 100vw;
-}
+    .side-view-category {
+        text-align: center;
 
-@media only screen and (min-width: 661px) {
-    #side-view {position: sticky; position: -webkit-sticky; top:0; height: 100vh;}
-}
+        ul {
+            list-style: none;
+            padding: 0;
+        }
 
-#socials {
-    display: flex;
-    flex-direction: column;
+        li {
+            @include remove-decor();
+            margin: 15px 0;
+        }
 
-    align-items: center;
-}
+        a {
+            @include remove-decor();
+        }
+    }
 
-.footer-socials-logo {
-    margin: 15px 0;
-}
+    #socials {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-.list-footer {
-    list-style: none;
-}
-
-#footer-socials-logo-linkedin {
-    filter: brightness(0);
+        img {
+            height: 29px;
+            width: auto;
+            margin: 15px 0;
+        }
+    }
+    
+    #footer-socials-logo-linkedin {
+        filter: brightness(0);
+    }
 }
 
 .photo-border {
     border: black 3px solid;
     border-radius: 20px;
-}
-
-#all-of-it {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footer-category {
-    text-align: center;
 }
