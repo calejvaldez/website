@@ -2,7 +2,7 @@
 image: ubuntu
 # Functions that should be executed before the build script is run
 before_script:
-  - "apt-get install npm"
+  - "apt-get update && apt-get install npm"
   - "npm install -g sass"
 pages:
   script:
