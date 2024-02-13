@@ -59,16 +59,7 @@ body {
     justify-content: space-evenly;
 
     width: 300px;
-    min-height: 200px;
-
-    @media only screen and (min-width: 661px) {
-        /*Desktop mode*/
-        #side-view {
-            position: sticky;
-            position: -webkit-sticky;
-            height: 100dvh;
-        }
-    }
+    height: 400px;
 
     .side-view-category {
         text-align: center;
