@@ -5,13 +5,10 @@ image: ubuntu
 before_script:
   - "apt-get update -y && apt-get install npm -y"
   - "npm install -g sass"
-  - "mkdir public"
-  - "cp -r src/static/ public"
+  - "cp -r src/* public"
   - "rm -fr public/static/styles/*"
   - "sass src/static/styles:public/static/styles"
 pages:
-  script:
-    - "sass public:public"
   artifacts:
     paths:
       - public
