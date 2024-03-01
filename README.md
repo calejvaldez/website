@@ -17,7 +17,7 @@ sudo npm install -g sass
 Once installed, you can run it from the terminal. I make it so that it refreshes while I'm still coding:
 
 ```bash
-sass --watch src:public
+sass --watch src/static/styles:src/static/styles
 ```
 
 For more information, please consult [the documentation](https://sass-lang.com/documentation/).

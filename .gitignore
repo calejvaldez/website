@@ -1,3 +1,6 @@
 *.css
 *.map
 .DS_Store
+
+public/static
+public/index.html
