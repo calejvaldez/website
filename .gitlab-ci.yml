@@ -9,6 +9,8 @@ before_script:
   - "rm -fr public/static/styles/*"
   - "sass src/static/styles:public/static/styles"
 pages:
+  script:
+    - ":"
   artifacts:
     paths:
       - public
