@@ -11,13 +11,13 @@ I don't really assume anybody's going to add content to my website. This is for 
 Instead of basic CSS, I use Sass. Here is how to install it:
 
 ```bash
-npm install -g sass
+sudo npm install -g sass
 ```
 
 Once installed, you can run it from the terminal. I make it so that it refreshes while I'm still coding:
 
 ```bash
-sass --watch public:public
+sass --watch src:public
 ```
 
 For more information, please consult [the documentation](https://sass-lang.com/documentation/).
