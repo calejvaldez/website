@@ -1,31 +1,78 @@
-/* index.scss */
+/* informatics132.scss */
 /* Carlos Valdez */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
 
+@mixin centerFlex($columnOrRow) {
     display: flex;
-    flex-direction: row;
+    flex-direction: $columnOrRow;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
+}
 
-    height: 95dvh;
+body {
+    color: white;
+    background-color: black;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    @include centerFlex(column);
+
+    p, h1, h2, li {
+        max-width: 350px;
+    }
+
+    a {
+        color: white;
+    }
+}
+
+.extra-text {
+    text-align: center;
+    // font-size: 12px;
+
+    margin: 35px;
+}
+
+#introducing-pantrypal {
+    @include centerFlex(column);
+}
+
+#introducing-pantrypal-text {
+    @include centerFlex(column);
+
+    line-height: 5px;
+}
+
+#introducing-pantrypal-images {
+    @include centerFlex(row);
+    width: 100dvw;
+    overflow-x: scroll;
+}
+
+img {
+    border-radius: 20px;
+
+    min-width: 200px;
+    max-width: 350px;
+    margin: 20px;
+}
+
+.space {
+    margin: 200px 0;
+}
+
+#problem-statement {
+    @include centerFlex(column);
+    text-align: center;
 
     margin: 0 35px;
+}
 
-    img {
-        height: 350px;
-    }
+#competative-analysis {
+    @include centerFlex(column);
+    text-align: center;
+}
 
-    @media only screen and (max-width: 661px) {
-        h1 {
-            font-size: 25px;
-        }
-
-        img {
-            height: 150px;
-        }
-    }
+.left-to-right {
+    @include centerFlex(row);
+    flex-wrap: wrap;
 }
