@@ -1,7 +1,29 @@
-/* index.scss */
-/* Carlos Valdez */
-body {
+// index.scss
+// Carlos Valdez
+:root {
     font-family: Arial, Helvetica, sans-serif;
+
+    background-color: white;
+    color: black;
+
+    .photo-border {
+        border: black 3px solid;
+        border-radius: 20px;
+    }
+
+    code {
+        background-color: rgb(240, 240, 240);
+        padding: 2px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    a {
+        color: black;
+    }
+}
+
+body {
     margin: 0;
 
     display: flex;
@@ -40,11 +62,6 @@ body {
     max-width: 300px;
 }
 
-@mixin remove-decor {
-    text-decoration: none;
-    color: black;
-}
-
 #flex-left-to-right {
     /*
     Works with two sections:
@@ -79,12 +96,8 @@ body {
         }
 
         li {
-            @include remove-decor();
             margin: 15px 0;
-        }
-
-        a {
-            @include remove-decor();
+            a {text-decoration: none;}
         }
     }
 
@@ -103,9 +116,4 @@ body {
     #footer-socials-logo-linkedin {
         filter: brightness(0);
     }
-}
-
-.photo-border {
-    border: black 3px solid;
-    border-radius: 20px;
 }
