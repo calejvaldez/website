@@ -25,6 +25,16 @@ Carlos Valdez
   line-height: 20px;
 }
 
+:root blockquote {
+  border-left: solid white 2px;
+  padding: 2px 0 2px 20px;
+  margin: 20px 0;
+}
+
+:root blockquote p {
+  margin: 5px 0;
+}
+
 header {
   display: flex;
   flex-direction: column;
