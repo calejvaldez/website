@@ -20,6 +20,7 @@ export default function Home() {
 
   return (
     <>
+      <h1>Index</h1>
       <Section title="about me">
         <p>
           Hello world! I'm a software developer located in Irvine, CA. My work focuses{" "}
