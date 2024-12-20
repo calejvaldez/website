@@ -39,9 +39,6 @@ export default function RootLayout({
           <p>contact me: <Link href="https://github.com/calejvaldez/" target="_blank" rel="noreferrer noopener">github</Link>,{" "}
             <Link href="https://www.linkedin.com/in/calejvaldez/" target="_blank" rel="noreferrer noopener">linkedin</Link>,{" "}
             or <Link href="mailto:cvaldezh@uci.edu">email</Link></p>
-          <div className="links">
-            
-          </div>
         </footer>
       </body>
     </html>

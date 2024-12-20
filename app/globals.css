@@ -68,9 +68,3 @@ footer {
 footer p {
   margin: 0;
 }
-
-footer .links {
-  display: flex;
-  width: 250px;
-  justify-content: space-around;
-}
