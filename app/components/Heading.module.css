@@ -1,0 +1,16 @@
+.container_wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.container_wrapper h1, .container_wrapper h2 {
+    margin: 5px 0;
+}
+
+.link_button {
+    margin: 0 5px;
+}
+
+.link_button:hover {
+    cursor: pointer;
+}

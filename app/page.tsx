@@ -2,26 +2,15 @@
 /app/page.tsx
 Carlos Valdez
 */
-import { ReactNode } from "react";
 import Link from "next/link";
+import Heading from "./components/Heading";
+import Section from "./components/Section";
 
 export default function Home() {
-  type SectionProps = {
-    title: string
-    children: ReactNode
-  }
-
-  function Section({title, children}: SectionProps) {
-    return <div id={title.toLowerCase().replace(" ", "-")}>
-      <h2 style={{fontSize: '30px'}}>{title}</h2>
-      {children}
-    </div>
-  }
-
   return (
     <>
-      <h1 style={{fontSize: '35px'}}>Index</h1>
-      <Section title="about me">
+      <Heading level="h1" sectionId="index" hideLinkButton={true}>Index</Heading>
+      <Section title="About Me">
         <p>
           Hello world! I'm a software developer located in Irvine, CA. My work focuses{" "}
           on full-stack web development and ui/ux design. As a{" "}
