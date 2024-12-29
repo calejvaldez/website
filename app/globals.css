@@ -10,6 +10,7 @@ Carlos Valdez
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-behavior: smooth;
 }
 
 :root a {
