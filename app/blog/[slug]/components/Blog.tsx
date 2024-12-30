@@ -26,6 +26,10 @@ export default function Blog({slug}: {slug: string}) {
         return <>{children && <Heading sectionId={children.toString().toLowerCase().replaceAll(" ", "-")} level="h2" children={children} />}</>
     }
 
+    function H3Wrapper({children}: {children: ReactNode}) {
+        return <>{children && <Heading sectionId={children.toString().toLowerCase().replaceAll(" ", "-")} level="h3" children={children} />}</>
+    }
+
     function AWrapper({children, ...props}: {children: ReactNode, href: string}) {
         return <>{children && <a href={props.href} target="_blank" rel="noreferrer noopener">{children.toString()}</a>}</>
     }
@@ -36,6 +40,7 @@ export default function Blog({slug}: {slug: string}) {
                 overrides: {
                     h1: { component: H1Wrapper },
                     h2: { component: H2Wrapper },
+                    h3: { component: H3Wrapper },
                     a: { component: AWrapper },
                 }
             }}
