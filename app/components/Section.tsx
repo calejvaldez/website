@@ -8,7 +8,7 @@ type SectionProps = {
 
 export default function Section({title, children}: SectionProps) {
     return <>
-        <Heading level="h2" sectionId={title.toLowerCase().replace(" ", "-")}>{title}</Heading>
+        <Heading level="h2" sectionId={title.toLowerCase().replaceAll(" ", "-")}>{title}</Heading>
         {children}
     </>
 }
