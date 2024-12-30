@@ -32,7 +32,7 @@ export default function Heading({sectionId, level, children, hideLinkButton}: Ex
         {level === "h2" && <h2 style={{fontSize: '30px'}}>{children}</h2>}
 
         <Image hidden={!hovered} onClick={() => {
-            let path = `${window.origin}#${sectionId}`;
+            let path = `${window.location.pathname}#${sectionId}`;
             navigator.clipboard.writeText(path);
             router.replace(path);
             
