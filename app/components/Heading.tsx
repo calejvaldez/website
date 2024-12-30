@@ -36,6 +36,6 @@ export default function Heading({sectionId, level, children, hideLinkButton}: Ex
             navigator.clipboard.writeText(path);
             router.replace(path);
             
-        }} alt={`Copy link for ${sectionId}`} src="./link-icon.svg" className={styles.link_button} width="20" height="20" />
+        }} alt={`Copy link for ${sectionId}`} src="/link-icon.svg" className={styles.link_button} width="20" height="20" />
     </div>
 }
