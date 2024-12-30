@@ -47,7 +47,13 @@ export default function Blog({slug}: {slug: string}) {
         >
             {markdown}
         </Markdown>
-        {articleMetadata && <p style={{color: 'grey', fontSize: '14px'}}>{timestampToString(articleMetadata.timestamp, true)}</p>}
-        {articleMetadata && <p style={{color: 'grey', fontSize: '14px'}}>License: Creative Commons Attribution 4.0 International</p>}
+        
+        {articleMetadata && <span style={{color: 'grey', fontSize: '14px'}}>{timestampToString(articleMetadata.timestamp, true)}</span>}
+        <br/>
+        {articleMetadata && <span style={{color: 'grey', fontSize: '14px'}}>License: Creative Commons Attribution 4.0 International</span>}
+        <br/>
+        {articleMetadata && <span style={{color: 'grey', fontSize: '14px'}}>Download: <a href={`/content/${articleMetadata.slug}.md`}>Markdown</a></span>}
+        
+        
     </>
 }
