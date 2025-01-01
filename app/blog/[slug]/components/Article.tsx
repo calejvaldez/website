@@ -17,21 +17,13 @@ export default function Article({slug}: {slug: string}) {
             })
         })
     }, [markdown, articleMetadata])
-    
-    function H1Wrapper({children}: {children: ReactNode}) {
-        return <>{children && <Heading sectionId={children.toString().toLowerCase().replaceAll(" ", "-")} level="h1" hideLinkButton={true} children={children} />}</>
-    }
 
-    function H2Wrapper({children}: {children: ReactNode}) {
-        return <>{children && <Heading sectionId={children.toString().toLowerCase().replaceAll(" ", "-")} level="h2" children={children} />}</>
-    }
-
-    function H3Wrapper({children}: {children: ReactNode}) {
-        return <>{children && <Heading sectionId={children.toString().toLowerCase().replaceAll(" ", "-")} level="h3" children={children} />}</>
-    }
-
-    function AWrapper({children, ...props}: {children: ReactNode, href: string}) {
-        return <>{children && <a href={props.href} target="_blank" rel="noreferrer noopener">{children.toString()}</a>}</>
+    function Wrapper({children, htmlTag, href}: {children: ReactNode, htmlTag: "h1" | "h2" | "h3" | "a", href?: string}) {
+        if (htmlTag === 'h1' || htmlTag === 'h2' || htmlTag === 'h3') {
+            return <>{children && <Heading sectionId={children.toString().toLowerCase().replaceAll(" ", "-")} level={htmlTag} hideLinkButton={htmlTag === 'h1'}>{children}</Heading>}</>
+        } else {
+            return <>{children && <a href={href} target="_blank" rel="noreferrer noopener">{children.toString()}</a>}</>
+        }
     }
 
     return <>
@@ -39,10 +31,10 @@ export default function Article({slug}: {slug: string}) {
         <Markdown
             options={{wrapper: 'article',
                 overrides: {
-                    h1: { component: H1Wrapper },
-                    h2: { component: H2Wrapper },
-                    h3: { component: H3Wrapper },
-                    a: { component: AWrapper },
+                    h1: { component: Wrapper, props: {htmlTag: 'h1'} },
+                    h2: { component: Wrapper, props: {htmlTag: 'h2'} },
+                    h3: { component: Wrapper, props: {htmlTag: 'h3'} },
+                    a: { component: Wrapper, props: {htmlTag: 'a'} },
                 }
             }}
         >
