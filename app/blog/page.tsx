@@ -22,6 +22,7 @@ export default function BlogIndex() {
     }, [articles])
 
     return <>
+        <a href="/">Back</a>
         <Heading sectionId="blog" level="h1" hideLinkButton={true}>/blog</Heading>
         <p>I'm a yapper with a blog. Some of these are personal, others are professional. Pick your poison.</p>
         <ul style={{listStyle: 'none', margin: 0, padding: 0}}>

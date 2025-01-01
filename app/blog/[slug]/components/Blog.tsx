@@ -35,6 +35,7 @@ export default function Blog({slug}: {slug: string}) {
     }
 
     return <>
+        <a href="/blog">Back</a>
         <Markdown
             options={{wrapper: 'article',
                 overrides: {
