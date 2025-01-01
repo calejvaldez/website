@@ -4,6 +4,7 @@ import { ReactNode, useEffect, useState } from "react";
 import articleJson from "@/public/content/metadata.json"
 import Markdown from 'markdown-to-jsx'
 import Heading from "@/app/components/Heading";
+import Link from "next/link";
 
 export default function Article({slug}: {slug: string}) {
     const [articleMetadata, setArticleMetadata] = useState<ArticleMetadata | null>(null);
@@ -22,12 +23,12 @@ export default function Article({slug}: {slug: string}) {
         if (htmlTag === 'h1' || htmlTag === 'h2' || htmlTag === 'h3') {
             return <>{children && <Heading sectionId={children.toString().toLowerCase().replaceAll(" ", "-")} level={htmlTag} hideLinkButton={htmlTag === 'h1'}>{children}</Heading>}</>
         } else {
-            return <>{children && <a href={href} target="_blank" rel="noreferrer noopener">{children.toString()}</a>}</>
+            return <>{children && href && <Link href={href} target="_blank" rel="noreferrer noopener">{children.toString()}</Link>}</>
         }
     }
 
     return <>
-        <a href="/blog">Back</a>
+        <Link href="/blog">Back</Link>
         <Markdown
             options={{wrapper: 'article',
                 overrides: {
