@@ -5,7 +5,7 @@ import articleJson from "@/public/content/metadata.json"
 import Markdown from 'markdown-to-jsx'
 import Heading from "@/app/components/Heading";
 
-export default function Blog({slug}: {slug: string}) {
+export default function Article({slug}: {slug: string}) {
     const [articleMetadata, setArticleMetadata] = useState<ArticleMetadata | null>(null);
     const [markdown, setMarkdown] = useState("");
 
