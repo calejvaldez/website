@@ -38,7 +38,7 @@ Markdown to HTML for you to read!
 >
 > ```markdown
 > <!--
-> Credit & Other Useful Things
+> Credit
 > 
 > Author: Carlos Valdez
 > License: Creative Commons Attribution 4.0 International

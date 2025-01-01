@@ -10,7 +10,7 @@ import { ArticleMetadata, timestampToString } from "../helper";
 
 function BlogButton({article}: {article: ArticleMetadata}) {
     return <li>
-        <p>{timestampToString(article.timestamp)}: <a href={article.slug}>{article.title}</a></p>
+        <p>{timestampToString(article.timestamp)}: <a href={`${article.slug}/`}>{article.title}</a></p>
     </li>
 }
 
