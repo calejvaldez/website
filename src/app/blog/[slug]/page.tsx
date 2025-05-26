@@ -3,7 +3,7 @@ blog/[slug]/page.tsx
 Carlos Valdez
 */
 import { fetchArticlesMetadata } from "@/utils/blog";
-import Article from "./components/Article";
+import Article from "./_components/Article";
 
 export async function generateStaticParams() {
     const articlesMetadata = await fetchArticlesMetadata();

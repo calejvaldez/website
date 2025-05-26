@@ -1,4 +1,4 @@
-import { ArticleMetadata } from "@/app/helper";
+import { ArticleMetadata } from "@/types/blog";
 import path from "path";
 import fs from "fs";
 

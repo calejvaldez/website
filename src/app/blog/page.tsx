@@ -3,8 +3,9 @@ blog/page.tsx
 Carlos Valdez
 */
 import { fetchArticlesMetadata } from "@/utils/blog";
-import Heading from "../components/Heading";
-import { ArticleMetadata, timestampToString } from "../helper";
+import Heading from "@/components/Heading";
+import { timestampToString } from "@/utils/parsing";
+import { ArticleMetadata } from "@/types/blog";
 import Link from "next/link";
 
 function BlogButton({article}: {article: ArticleMetadata}) {

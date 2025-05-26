@@ -1,8 +1,4 @@
-/*
-helper.ts
-Carlos Valdez
-*/
-const MONTHS = [
+export const MONTHS = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ]
@@ -15,11 +11,4 @@ export function timestampToString(timestamp: number, long?: boolean): string {
         return `${date.getFullYear().toString().slice(2, 4)}-${date.getMonth()+1}-${date.getDate()}`
     }
     
-}
-
-export type ArticleMetadata = {
-    slug: string;
-    title: string;
-    timestamp: number;
-    tags: string[]; // todo: Eventually I'll implement filters.
 }

@@ -1,7 +1,7 @@
-import { timestampToString } from "@/app/helper";
+import { timestampToString } from "@/utils/parsing";
 import { CSSProperties, ReactNode } from "react";
 import Markdown from 'markdown-to-jsx'
-import Heading from "@/app/components/Heading";
+import Heading from "@/components/Heading";
 import Link from "next/link";
 import { fetchArticle, fetchArticleMetadata } from "@/utils/blog";
 

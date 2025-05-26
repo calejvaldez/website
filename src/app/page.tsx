@@ -3,8 +3,8 @@
 Carlos Valdez
 */
 import Link from "next/link";
-import Heading from "./components/Heading";
-import Section from "./components/Section";
+import Heading from "@/components/Heading";
+import Section from "@/components/Section";
 
 export default function Home() {
   return (
