@@ -1,23 +1,14 @@
-"use client";
-import { ArticleMetadata, timestampToString } from "@/app/helper";
-import { ReactNode, useEffect, useState } from "react";
-import articleJson from "@/public/content/metadata.json"
+import { timestampToString } from "@/app/helper";
+import { CSSProperties, ReactNode } from "react";
 import Markdown from 'markdown-to-jsx'
 import Heading from "@/app/components/Heading";
 import Link from "next/link";
+import { fetchArticle, fetchArticleMetadata } from "@/utils/blog";
 
-export default function Article({slug}: {slug: string}) {
-    const [articleMetadata, setArticleMetadata] = useState<ArticleMetadata | null>(null);
-    const [markdown, setMarkdown] = useState("");
-
-    useEffect(() => {
-        fetch(`/content/${slug}.md`).then(response => {
-            response.text().then(content => {
-                setMarkdown(content);
-                setArticleMetadata(articleJson.find(article => article.slug === slug) as ArticleMetadata)
-            })
-        })
-    }, [markdown, articleMetadata])
+export default async function Article({slug}: {slug: string}) {
+    const articleMetadata = await fetchArticleMetadata(slug);
+    const markdown = await fetchArticle(slug);
+    const metadataStyle: CSSProperties = {color: 'grey', fontSize: '14px'};
 
     function Wrapper({children, htmlTag, href}: {children: ReactNode, htmlTag: "h1" | "h2" | "h3" | "a", href?: string}) {
         if (htmlTag === 'h1' || htmlTag === 'h2' || htmlTag === 'h3') {
@@ -42,12 +33,10 @@ export default function Article({slug}: {slug: string}) {
             {markdown}
         </Markdown>
         
-        {articleMetadata && <span style={{color: 'grey', fontSize: '14px'}}>{timestampToString(articleMetadata.timestamp, true)}</span>}
+        <span style={metadataStyle}>{timestampToString(articleMetadata.timestamp, true)}</span>
         <br/>
-        {articleMetadata && <span style={{color: 'grey', fontSize: '14px'}}>License: Creative Commons Attribution 4.0 International</span>}
+        <span style={metadataStyle}>License: Creative Commons Attribution 4.0 International</span>
         <br/>
-        {articleMetadata && <span style={{color: 'grey', fontSize: '14px'}}>Download: <a href={`/content/${articleMetadata.slug}.md`}>Markdown</a></span>}
-        
-        
+        <span style={metadataStyle}>Download: <a href={`/content/${articleMetadata.slug}.md`}>Markdown</a></span>
     </>
 }

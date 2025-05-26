@@ -2,11 +2,12 @@
 blog/[slug]/page.tsx
 Carlos Valdez
 */
-import articleJson from "@/public/content/metadata.json"
+import { fetchArticlesMetadata } from "@/utils/blog";
 import Article from "./components/Article";
 
 export async function generateStaticParams() {
-    return articleJson.map((article) => ({
+    const articlesMetadata = await fetchArticlesMetadata();
+    return articlesMetadata.map((article) => ({
         slug: article.slug
     }))
 }
