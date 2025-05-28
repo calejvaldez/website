@@ -49,16 +49,13 @@ Markdown to HTML for you to read!
 
 ## Running and Building
 
-> [!IMPORTANT]
-> Make sure you have [nvm](https://github.com/nvm-sh/nvm) installed.
-
 This website is built using [NextJS](https://nextjs.org/). You can start with:
 
 ```shell
-nvm use
-npm i
-npm run dev
+pnpm env use --global v22.3.0
+pnpm i
+pnpm run dev
 ```
 
-You can build the website with `npm run build`. The static files will be found
-in `/out`.
+You can build the website with `pnpm run build`. The static files will be found
+in `/out`. You can run the build using `pnpm run serve`.
