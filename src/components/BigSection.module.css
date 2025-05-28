@@ -29,6 +29,24 @@
     min-width: 200px;
 }
 
+@media (max-width: 600px) {
+    .container {
+        margin: 50px 0;
+    }
+
+    .metadata h1 {
+        font-size: 65px;
+    }
+
+    .metadata h2 {
+        font-size: 35px;
+    }
+
+    .metadata p {
+        font-size: 25px;
+    }
+}
+
 .content {
     margin: 15px 0;
 }
