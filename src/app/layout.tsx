@@ -3,11 +3,10 @@ layout.tsx
 Carlos Valdez
 */
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
 
-const roboto = Roboto({
+const sourceSansPro = Source_Sans_3({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
@@ -27,20 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className}`}>
-        <header>
-          <h1>
-            carlos valdez <i>(calejvaldez)</i>
-          </h1>
-          <p>a software developer from california.</p>
-        </header>
+      <body className={`${sourceSansPro.className}`}>
         <main>{children}</main>
-        <footer>
-          <p>contact me: <Link href="https://github.com/calejvaldez/" target="_blank" rel="noreferrer noopener">github</Link>,{" "}
-            <Link href="https://www.linkedin.com/in/calejvaldez/" target="_blank" rel="noreferrer noopener">linkedin</Link>,{" "}
-            or <Link href="mailto:cvaldezh@uci.edu">email</Link></p>
-          <p>download my <Link href="/keys/gpg.asc">gpg public key</Link></p>
-        </footer>
       </body>
     </html>
   );

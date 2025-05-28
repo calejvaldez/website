@@ -1,0 +1,16 @@
+.socialsContainer {
+    display: flex;
+    align-items: center;
+}
+
+.socialsContainer p {
+    font-size: 35px;
+    margin: 0;
+}
+
+.socialsIcons {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    margin-left: 20px;
+}
