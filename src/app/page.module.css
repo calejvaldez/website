@@ -14,3 +14,15 @@
     width: 100px;
     margin-left: 20px;
 }
+
+.projectsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@media (max-width: 660px) {
+    .socialsContainer p {
+        font-size: 25px;
+    }
+}

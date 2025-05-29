@@ -1,0 +1,51 @@
+.buttonContainer {
+    background-color: var(--blue);
+
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 20px;
+
+    max-width: 300px;
+    padding-bottom: 20px;
+    margin: 20px;
+}
+
+.buttonContainer a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.buttonContainer h3 {
+    font-size: 30px;
+    margin: 10px 20px;
+    font-weight: bold;
+}
+
+.buttonContainer h3 span {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.buttonContainer p {
+    margin: 2px 20px;
+}
+
+.dates {
+    color: lightgray;
+}
+
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    max-height: 250px;
+}

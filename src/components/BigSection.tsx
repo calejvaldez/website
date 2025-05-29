@@ -4,19 +4,16 @@ import styles from "./BigSection.module.css"
 type BigSectionProps = {
     title: string;
     description: ReactNode | string;
-    bigLevel?: "biggest" | "big";
+    bigger?: boolean;
     children: ReactNode
 }
 
-export default function BigSection({title, description, bigLevel, children}: BigSectionProps) {
-    const descriptionStyle: CSSProperties = {fontSize: bigLevel === "biggest" ? "35px" : "20px"};
-    const header = bigLevel === "biggest" ? <h1 className={styles.biggestTitle}>{title}</h1> : <h2 className={styles.bigTitle}>{title}</h2>
-
+export default function BigSection({title, description, bigger, children}: BigSectionProps) {
     return (
         <section className={styles.container}>
             <div className={styles.metadata}>
-                {header}
-                <p style={descriptionStyle}>{description}</p>
+                {bigger ? <h1>{title}</h1> : <h2>{title}</h2>}
+                <p>{description}</p>
             </div>
             <div className={styles.content}>{children}</div>
         </section>
