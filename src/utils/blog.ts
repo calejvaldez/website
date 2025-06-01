@@ -22,6 +22,7 @@ type articleMetadata = {
   title: string;
   timestamp: number;
   tags: string[];
+  unlisted?: boolean;
 };
 
 export const articlesMetadata: articleMetadata[] = [
@@ -48,5 +49,6 @@ export const articlesMetadata: articleMetadata[] = [
     title: "A Reminder for 2025 (and Beyond)",
     timestamp: 1735781652,
     tags: [],
+    unlisted: true,
   },
 ];

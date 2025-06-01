@@ -40,6 +40,7 @@ export default async function BlogIndex() {
       </p>
       <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {articlesMetadata
+          .filter((article) => !article.unlisted)
           .sort((a, b) => b.timestamp - a.timestamp)
           .map((article) => {
             return <BlogButton key={article.slug} article={article} />;
