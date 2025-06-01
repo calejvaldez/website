@@ -1,8 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProjectButton.module.css";
 
-type ProjectButtonProps = {
+export type ProjectButtonProps = {
   name: string;
   description: string;
   role: string;
@@ -14,28 +13,27 @@ type ProjectButtonProps = {
 };
 
 export default function ProjectButton({
-  name,
-  description,
-  role,
-  link,
-  imageSrc,
-  imageAlt,
-  startLabel,
-  endLabel,
-}: ProjectButtonProps) {
+  project,
+}: {
+  project: ProjectButtonProps;
+}) {
   return (
     <div className={styles.buttonContainer}>
-      <Link href={link} target="_blank" rel="noreferrer noopener">
+      <Link href={project.link} target="_blank" rel="noreferrer noopener">
         <div className={styles.fill}>
-          <img className={styles.image} src={imageSrc} alt={imageAlt} />
+          <img
+            className={styles.image}
+            src={project.imageSrc}
+            alt={project.imageAlt}
+          />
         </div>
 
         <h3>
-          {name} <span>{role}</span>
+          {project.name} <span>{project.role}</span>
         </h3>
-        <p>{description}</p>
+        <p>{project.description}</p>
         <p className={styles.dates}>
-          {startLabel} - {endLabel}
+          {project.startLabel} - {project.endLabel}
         </p>
       </Link>
     </div>
