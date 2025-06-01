@@ -10,29 +10,43 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "blog - carlos valdez",
-    description: "a yapper with a blog. some of these are personal, others are professional. pick your poison.",
-    authors: [{name: "Carlos Valdez", url: "https://calejvaldez.com/"}]
-}
+  title: "blog - carlos valdez",
+  description:
+    "a yapper with a blog. some of these are personal, others are professional. pick your poison.",
+  authors: [{ name: "Carlos Valdez", url: "https://calejvaldez.com/" }],
+};
 
-function BlogButton({article}: {article: ArticleMetadata}) {
-    return <li>
-        <p>{timestampToString(article.timestamp)}: <Link href={`/blog/${article.slug}/`}>{article.title}</Link></p>
+function BlogButton({ article }: { article: ArticleMetadata }) {
+  return (
+    <li>
+      <p>
+        {timestampToString(article.timestamp)}:{" "}
+        <Link href={`/blog/${article.slug}/`}>{article.title}</Link>
+      </p>
     </li>
+  );
 }
 
 export default async function BlogIndex() {
-    const articlesMetadata = await fetchArticlesMetadata();
+  const articlesMetadata = await fetchArticlesMetadata();
 
-    return <>
-        <Link href="/">Back</Link>
-        <Heading sectionId="blog" level="h1" hideLinkButton={true}>/blog</Heading>
-        <p>I'm a yapper with a blog. Some of these are personal, others are professional. Pick your poison.</p>
-        <ul style={{listStyle: 'none', margin: 0, padding: 0}}>
-            {articlesMetadata.sort((a, b) => b.timestamp - a.timestamp).map((article) => {
-                return <BlogButton key={article.slug} article={article} />
-            })}
-        </ul>
-        
+  return (
+    <>
+      <Link href="/">Back</Link>
+      <Heading sectionId="blog" level="h1" hideLinkButton={true}>
+        /blog
+      </Heading>
+      <p>
+        I'm a yapper with a blog. Some of these are personal, others are
+        professional. Pick your poison.
+      </p>
+      <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+        {articlesMetadata
+          .sort((a, b) => b.timestamp - a.timestamp)
+          .map((article) => {
+            return <BlogButton key={article.slug} article={article} />;
+          })}
+      </ul>
     </>
+  );
 }
