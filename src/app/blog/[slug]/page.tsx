@@ -2,12 +2,11 @@
 blog/[slug]/page.tsx
 Carlos Valdez
 */
-import { fetchArticleMetadata, fetchArticlesMetadata } from "@/utils/blog";
+import { fetchArticleMetadata, articlesMetadata } from "@/utils/blog";
 import Article from "./_components/Article";
 import { Metadata, ResolvingMetadata } from "next";
 
 export async function generateStaticParams() {
-  const articlesMetadata = await fetchArticlesMetadata();
   return articlesMetadata.map((article) => ({
     slug: article.slug,
   }));

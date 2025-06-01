@@ -2,7 +2,7 @@
 blog/page.tsx
 Carlos Valdez
 */
-import { fetchArticlesMetadata } from "@/utils/blog";
+import { articlesMetadata } from "@/utils/blog";
 import Heading from "@/components/Heading";
 import { timestampToString } from "@/utils/parsing";
 import { ArticleMetadata } from "@/types/blog";
@@ -28,8 +28,6 @@ function BlogButton({ article }: { article: ArticleMetadata }) {
 }
 
 export default async function BlogIndex() {
-  const articlesMetadata = await fetchArticlesMetadata();
-
   return (
     <>
       <Link href="/">Back</Link>
