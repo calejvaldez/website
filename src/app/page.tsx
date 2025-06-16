@@ -5,12 +5,15 @@ Carlos Valdez
 "use client";
 import BigSection from "@/components/BigSection";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./page.module.css";
 import { GithubCircle, Linkedin, Mail } from "iconoir-react";
 import ProjectButton from "@/components/ProjectButton";
 import { projectsData } from "@/utils/projects";
 
 export default function Home() {
+  const imageSize = 350;
+
   return (
     <>
       <BigSection
@@ -50,6 +53,18 @@ export default function Home() {
               <Mail />
             </Link>
           </div>
+        </div>
+      </BigSection>
+      <BigSection title="About Me" description="Let's learn about each other!">
+        <div className={styles.aboutMeContainer}>
+          <Image
+            src={`https://gravatar.com/avatar/9ee4f31a2821014982fc155c5abbec7c92a71d30e6992673fdeb34324f45f1f8?s=${imageSize}`}
+            alt="Carlos Valdez's Gravatar"
+            width={imageSize}
+            height={imageSize}
+            className={styles.gravatarIcon}
+          />
+          <p>I am a recent graduate from UC Irvine.</p>
         </div>
       </BigSection>
       <BigSection
