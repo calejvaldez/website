@@ -7,14 +7,13 @@ import Heading from "@/components/Heading";
 import { timestampToString } from "@/utils/parsing";
 import { ArticleMetadata } from "@/types/blog";
 import Link from "next/link";
-import { Metadata } from "next";
+import { metadataWith } from "@/utils/metadata";
 
-export const metadata: Metadata = {
-  title: "blog - carlos valdez",
-  description:
-    "a yapper with a blog. some of these are personal, others are professional. pick your poison.",
-  authors: [{ name: "Carlos Valdez", url: "https://calejvaldez.com/" }],
-};
+export const metadata = metadataWith(
+  "/blog | Carlos Valdez",
+  "A yapper with a blog. Some of these are personal, others are professional. Pick your poison.",
+  "https://calejvaldez.com/blog/",
+);
 
 function BlogButton({ article }: { article: ArticleMetadata }) {
   return (

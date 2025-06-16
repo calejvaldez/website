@@ -2,9 +2,9 @@
 layout.tsx
 Carlos Valdez
 */
-import type { Metadata } from "next";
 import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import { metadataWith } from "@/utils/metadata";
 
 const sourceSansPro = Source_Sans_3({
   weight: "400",
@@ -12,12 +12,12 @@ const sourceSansPro = Source_Sans_3({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "carlos valdez",
-  description: "a software developer from california.",
-  icons:
-    "https://gravatar.com/avatar/41bb2938e02bf5326eb6b82ec02d919ca97cf68b376c4c5769fbba4acc85a190?s=50",
-};
+export const metadata = metadataWith(
+  "Carlos Valdez",
+  "A software developer from California",
+  "https://calejvaldez.com/",
+  "https://gravatar.com/avatar/9ee4f31a2821014982fc155c5abbec7c92a71d30e6992673fdeb34324f45f1f8?s=350",
+);
 
 export default function RootLayout({
   children,

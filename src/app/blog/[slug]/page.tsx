@@ -5,6 +5,7 @@ Carlos Valdez
 import { fetchArticleMetadata, articlesMetadata } from "@/utils/blog";
 import Article from "./_components/Article";
 import { Metadata, ResolvingMetadata } from "next";
+import { metadataWith } from "@/utils/metadata";
 
 export async function generateStaticParams() {
   return articlesMetadata.map((article) => ({
@@ -22,6 +23,12 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const slug = (await params).slug;
   const articleMetadata = await fetchArticleMetadata(slug);
+
+  return metadataWith(
+    `${articleMetadata.title} | Carlos Valdez`,
+    `Read "${articleMetadata.title}" on Carlos' /blog!`,
+    `https://calejvaldez.com/blog/${articleMetadata.slug}/`,
+  );
 
   return {
     title: `${articleMetadata.title.toLowerCase()} - carlos valdez`,
