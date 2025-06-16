@@ -45,7 +45,7 @@ export default function Home() {
             <Link
               rel="noreferrer noopener"
               target="_blank"
-              href="mailto:cvaldezh@uci.edu"
+              href="mailto:self@calejvaldez.com"
             >
               <Mail />
             </Link>
