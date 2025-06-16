@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "serve": "serve out",
+    "clear": "node scripts/clear.js",
     "prettier": "prettier --write \"**/*.{js,ts,tsx,json,yaml}\""
   },
   "dependencies": {
