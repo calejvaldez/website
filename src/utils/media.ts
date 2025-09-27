@@ -16,8 +16,18 @@ export const mediaCollection: Media[] = [
     url: "https://www.tiktok.com/@gazi.ai/video/6985345810724588806",
   },
   {
+    label: "The Social Dilemma (2020)",
+    note: "These are interviews and dramatic interpretation of the dangers of social media, and how tech companies manipulate our brains. I think it's important to know about this *before* participating in social media.",
+    url: "https://www.netflix.com/watch/81254224/",
+  },
+  {
     label: "History 101: Robots (2020)",
     note: "The episode gave me an introduction to how computing is used in the real world, and the different applications it can have that isn't just a website or an app. The good, the bad, and the deadly. It made me want to make my mark in software history, one way or another.",
     url: "https://www.netflix.com/watch/81187213",
+  },
+  {
+    label: "Steve Jobs (2015)",
+    note: "I used to be a big fan of Steve Jobs in high school because I looked up to his obsession with a product being *good* rather than being marketable, even if it was just a tiny detail.",
+    url: "https://www.legendary.com/film/steve-jobs/",
   },
 ];
