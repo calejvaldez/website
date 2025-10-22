@@ -1,4 +1,3 @@
-import { ArticleMetadata } from "@/types/blog";
 import path from "path";
 import fs from "fs";
 
@@ -17,15 +16,20 @@ export async function fetchArticle(slug: string): Promise<string> {
   return fs.readFileSync(filePath, "utf-8");
 }
 
-type articleMetadata = {
+export async function fetchArticles(): Promise<ArticleMetadata[]> {
+  return articlesMetadata.sort((a, b) => a.timestamp - b.timestamp);
+}
+
+export type ArticleMetadata = {
   slug: string;
   title: string;
   timestamp: number;
   tags: string[];
+  description?: string;
   unlisted?: boolean;
 };
 
-export const articlesMetadata: articleMetadata[] = [
+export const articlesMetadata: ArticleMetadata[] = [
   {
     slug: "linux-and-productivity",
     title: "Linux and Productivity",
@@ -42,6 +46,8 @@ export const articlesMetadata: articleMetadata[] = [
     slug: "threads-fediverse",
     title: "Tangled Threads in the Fediverse",
     timestamp: 1711314540,
+    description:
+      "I talk about Meta's attempts at integrating ActivityPub into Threads, and the opposition throughout the Fediverse (defederation, ANTI-META FEDI PACT, and more).",
     tags: [],
   },
   {

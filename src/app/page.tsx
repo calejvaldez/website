@@ -2,68 +2,81 @@
 /app/page.tsx
 Carlos Valdez
 */
-"use client";
-import BigSection from "@/components/BigSection";
-import Link from "next/link";
 import styles from "./page.module.css";
-import { GithubCircle, Linkedin, Mail } from "iconoir-react";
-import ProjectButton from "@/components/ProjectButton";
+import Image from "next/image";
+import IndexLink from "./_components/IndexLink";
+import { fetchArticles } from "@/utils/blog";
+import { metadataWith } from "@/utils/metadata";
 import { projectsData } from "@/utils/projects";
 
-export default function Home() {
+export const metadata = metadataWith(
+  "Carlos Valdez, full-stack developer in California",
+  "Carlos Valdez is a passionate full-stack developer with a background in human-computer interaction. He focuses on solutions that prioritize a user's experience and security.",
+  "https://calejvaldez.com/",
+);
+
+export default async function Home() {
+  const articles = await fetchArticles();
+  const listedArticles = articles.filter((a) => !a.unlisted);
+  const lastArticle = listedArticles[listedArticles.length - 1];
+
   return (
     <>
-      <BigSection
-        title="Carlos Valdez"
-        bigger
-        description={
-          <>
-            A software developer building <strong>reliable systems</strong> and{" "}
-            <strong>human-centered interfaces</strong>.
-          </>
-        }
-      >
-        <div className={styles.socialsContainer}>
-          <p>
-            <i>@calejvaldez</i>
-          </p>
-          <div className={styles.socialsIcons}>
-            <Link
-              rel="noreferrer noopener"
-              target="_blank"
-              href="https://github.com/calejvaldez/"
-            >
-              <GithubCircle />
-            </Link>
-            <Link
-              rel="noreferrer noopener"
-              target="_blank"
-              href="https://linkedin.com/in/calejvaldez/"
-            >
-              <Linkedin />
-            </Link>
-            <Link
-              rel="noreferrer noopener"
-              target="_blank"
-              href="mailto:self@calejvaldez.com"
-            >
-              <Mail />
-            </Link>
+      <section className={styles.aboutContainer}>
+        <div className={styles.about}>
+          <div className={styles.text}>
+            <h1># about carlos</h1>
+            <p>
+              I'm Carlos, a software developer based in Irvine, California! I'm
+              a passionate full-stack developer with a background in
+              human-computer interaction. I build software from the ground up
+              based on the needs of a project. I focus on solutions that
+              prioritize a user's experience and security.
+            </p>
+            {/*<p>
+              I also like capybaras,{" "}
+              <Link href="/media">tv shows, and movies</Link>.
+            </p>*/}
           </div>
+
+          <Image
+            draggable={false}
+            width={250}
+            height={250}
+            alt="Carlos' Gravatar of him holding a capybara plushy."
+            src="https://gravatar.com/avatar/41bb2938e02bf5326eb6b82ec02d919ca97cf68b376c4c5769fbba4acc85a190?s=350"
+          />
         </div>
-      </BigSection>
-      <BigSection
-        title="Projects"
-        description="I work on a lot of projects. These are the ones I'm most proud of."
-      >
-        <div className={styles.projectsContainer}>
-          {projectsData.map((projectData) => {
+      </section>
+      <section className={styles.projectsContainer}>
+        <div className={styles.projects}>
+          <h2>## my projects</h2>
+          {projectsData.map((project) => {
             return (
-              <ProjectButton key={projectData.name} project={projectData} />
+              <IndexLink
+                key={project.url}
+                url={project.url}
+                img={project.img}
+                title={project.title}
+                description={project.description}
+              />
             );
           })}
         </div>
-      </BigSection>
+      </section>
+      {lastArticle && (
+        <section className={styles.postContainer}>
+          <div className={styles.post}>
+            <h3>### my latest post</h3>
+            <IndexLink
+              url={`/blog/${lastArticle.slug}`}
+              title={lastArticle.title}
+              description={lastArticle.description || "Description not set."}
+              timestamp={lastArticle.timestamp}
+            />
+          </div>
+        </section>
+      )}
     </>
   );
 }

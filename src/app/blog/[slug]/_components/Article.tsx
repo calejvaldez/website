@@ -48,7 +48,7 @@ export default async function Article({ slug }: { slug: string }) {
 
   return (
     <>
-      <Link href="/blog">Back</Link>
+      <Link href="/blog">{"< "}Blog articles</Link>
       <Markdown
         options={{
           wrapper: "article",

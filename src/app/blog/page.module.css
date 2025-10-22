@@ -1,0 +1,14 @@
+.blogContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 20px;
+
+  min-height: 75dvh;
+}
+
+.blogContent {
+  width: 80%;
+  max-width: 500px;
+}

@@ -1,27 +1,20 @@
+import { IndexLinkProps } from "@/app/_components/IndexLink";
 import { ProjectButtonProps } from "@/components/ProjectButton";
 
-export const projectsData: ProjectButtonProps[] = [
+export const projectsData: IndexLinkProps[] = [
   {
-    name: "Iris",
-    role: "Maintainer",
+    url: "https://ojosproject.org/iris/",
+    img: "https://ojosproject.org/images/iris-v0-summary.png",
+    title:
+      "Iris: a system to collaboratively care for a patient in palliative care",
     description:
-      "An open-source hospice management system. Tracks medications, video records, and more. Built with NextJS and Tauri.",
-    link: "https://github.com/ojosproject/iris/releases/latest/",
-    imageSrc: "https://ojosproject.org/images/iris-v0-summary.png",
-    imageAlt: "Various screenshots of the Iris software.",
-    startLabel: "October 2023",
-    endLabel: "Present",
+      "As the lead developer, I used modern web technology (and a hint of Rust 🦀) to build an app that helps with many of the essentials in palliative care. Its focuses are to empower patient independence while caregivers can rest assured as they remotely monitor. It tracks medications, conducts questionnaires, records video, and more. It’s currently being used at UC Irvine to port it to Android.",
   },
   {
-    name: "You Are Typing",
-    role: "Developer",
+    url: "https://github.com/calejvaldez/YouAreTyping/releases/latest/",
+    img: "https://raw.githubusercontent.com/calejvaldez/YouAreTyping/refs/heads/main/.github/assets/screenshot-pov.png",
+    title: "You Are Typing: a chat to engaging in self-dialog",
     description:
-      "A journaling app designed as a desktop chat app. Meant to help you become your own best friend. Built with Vite and Tauri.",
-    link: "https://github.com/calejvaldez/YouAreTyping/releases/latest/",
-    imageSrc:
-      "https://raw.githubusercontent.com/calejvaldez/YouAreTyping/refs/heads/main/.github/assets/header.png",
-    imageAlt: "You Are Typing logo",
-    startLabel: "May 2023",
-    endLabel: "Present",
+      "I used Vite to create an app that lets you chat with yourself. This is meant to act as a grounding method for people to sort out their thoughts through self-dialog. You can send messages and mirror their perspective, making it look as if you're texting someone else.",
   },
 ];

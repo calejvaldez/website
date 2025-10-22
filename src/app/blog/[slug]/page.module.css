@@ -1,0 +1,10 @@
+.articleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.articleContent {
+  max-width: 750px;
+  margin: 35px 20px;
+}

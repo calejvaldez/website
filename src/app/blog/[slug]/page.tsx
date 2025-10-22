@@ -6,6 +6,7 @@ import { fetchArticleMetadata, articlesMetadata } from "@/utils/blog";
 import Article from "./_components/Article";
 import { Metadata, ResolvingMetadata } from "next";
 import { metadataWith } from "@/utils/metadata";
+import styles from "./page.module.css";
 
 export async function generateStaticParams() {
   return articlesMetadata.map((article) => ({
@@ -26,19 +27,9 @@ export async function generateMetadata(
 
   return metadataWith(
     `${articleMetadata.title} | Carlos Valdez`,
-    `Read "${articleMetadata.title}" on Carlos' /blog!`,
+    `${articleMetadata.description ? articleMetadata.description : `Read "${articleMetadata.title}" on Carlos' /blog!`}\n\nCarlos Valdez is a passionate full-stack developer with a background in human-computer interaction. He focuses on solutions that prioritize a user's experience and security.`,
     `https://calejvaldez.com/blog/${articleMetadata.slug}/`,
   );
-
-  return {
-    title: `${articleMetadata.title.toLowerCase()} - carlos valdez`,
-    authors: [{ name: "Carlos Valdez", url: "https://calejvaldez.com/" }],
-    other: {
-      "article:published_time": new Date(
-        articleMetadata.timestamp * 1000,
-      ).toISOString(),
-    },
-  };
 }
 
 export default async function BlogWrapper({
@@ -47,5 +38,11 @@ export default async function BlogWrapper({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  return <Article slug={slug} />;
+  return (
+    <section className={styles.articleContainer}>
+      <div className={styles.articleContent}>
+        <Article slug={slug} />
+      </div>
+    </section>
+  );
 }

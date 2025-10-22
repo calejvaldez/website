@@ -1,4 +1,8 @@
-import { Media } from "@/types/media";
+export type Media = {
+  label: string;
+  note: string;
+  url?: string;
+};
 
 export const mediaCollection: Media[] = [
   {
