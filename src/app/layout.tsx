@@ -26,9 +26,9 @@ export default function RootLayout({
             Carlos Valdez
           </Link>
           <ul>
-            {/*<li>
+            <li>
               <Link href="/documents/resume.pdf">Resume</Link>
-            </li>*/}
+            </li>
           </ul>
         </header>
         <main>{children}</main>
