@@ -31,6 +31,7 @@ export default function RootLayout({
             </li>
           </ul>
         </header>
+        <div className="space"></div>
         <main>{children}</main>
         <footer>
           <strong>I'm online.</strong>

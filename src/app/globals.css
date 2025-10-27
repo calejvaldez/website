@@ -36,6 +36,7 @@ blockquote p {
 }
 
 header {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,6 +46,10 @@ header {
   font-size: 1.1rem;
   color: var(--white);
   background-color: var(--red);
+}
+
+.space {
+  height: 65px;
 }
 
 header a {
