@@ -3,12 +3,12 @@ blog/page.tsx
 Carlos Valdez
 */
 import { articlesMetadata } from "@/utils/blog";
-import Heading from "@/components/Heading";
 import { timestampToString } from "@/utils/parsing";
 import { ArticleMetadata } from "@/utils/blog";
 import Link from "next/link";
 import { metadataWith } from "@/utils/metadata";
 import styles from "./page.module.css";
+import TitleCard from "@/components/TitleCard";
 
 export const metadata = metadataWith(
   "/blog | Carlos Valdez",
@@ -31,13 +31,12 @@ export default async function BlogIndex() {
   return (
     <section className={styles.blogContainer}>
       <div className={styles.blogContent}>
-        <Heading sectionId="blog" level="h1" hideLinkButton={true}>
-          /blog
-        </Heading>
-        <p>
-          I'm a yapper with a blog. Some of these are personal, others are
-          professional. Pick your poison.
-        </p>
+        <TitleCard title="/blog">
+          <p>
+            I'm a yapper with a blog. Some of these are personal, others are
+            professional. Pick your poison.
+          </p>
+        </TitleCard>
         <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
           {articlesMetadata
             .filter((article) => !article.unlisted)

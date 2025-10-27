@@ -1,0 +1,17 @@
+.titleCard {
+  background-color: var(--black);
+  padding: 10dvh 35px;
+  margin: 10px 0;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.titleCard h1 {
+  color: var(--white);
+}
+
+.titleCard p {
+  color: gray;
+}

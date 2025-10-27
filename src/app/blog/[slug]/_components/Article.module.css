@@ -1,0 +1,18 @@
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.author img {
+  border-radius: 100%;
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.authorDetails p {
+  margin: 0;
+}

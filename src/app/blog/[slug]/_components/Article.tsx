@@ -4,11 +4,38 @@ import Markdown from "markdown-to-jsx";
 import Heading from "@/components/Heading";
 import Link from "next/link";
 import { fetchArticle, fetchArticleMetadata } from "@/utils/blog";
+import styles from "./Article.module.css";
+import Image from "next/image";
+import TitleCard from "@/components/TitleCard";
 
 export default async function Article({ slug }: { slug: string }) {
   const articleMetadata = await fetchArticleMetadata(slug);
   const markdown = await fetchArticle(slug);
   const metadataStyle: CSSProperties = { color: "grey", fontSize: "14px" };
+
+  function MetadataSummary({ children }: { children: string }) {
+    return (
+      <>
+        <TitleCard title={children}>
+          <>
+            <p>{timestampToString(articleMetadata.timestamp, true)}</p>
+            <div className={styles.author}>
+              <Image
+                src="https://gravatar.com/avatar/41bb2938e02bf5326eb6b82ec02d919ca97cf68b376c4c5769fbba4acc85a190?s=350"
+                alt="Carlos holding a capybara"
+                width={50}
+                height={50}
+              />
+              <div className={styles.authorDetails}>
+                <p>Carlos Valdez</p>
+                <p>Full-stack Developer</p>
+              </div>
+            </div>
+          </>
+        </TitleCard>
+      </>
+    );
+  }
 
   function Wrapper({
     children,
@@ -16,17 +43,17 @@ export default async function Article({ slug }: { slug: string }) {
     href,
   }: {
     children: ReactNode;
-    htmlTag: "h1" | "h2" | "h3" | "a";
+    htmlTag: "h2" | "h3" | "a";
     href?: string;
   }) {
-    if (htmlTag === "h1" || htmlTag === "h2" || htmlTag === "h3") {
+    if (htmlTag === "h2" || htmlTag === "h3") {
       return (
         <>
           {children && (
             <Heading
               sectionId={children.toString().toLowerCase().replaceAll(" ", "-")}
               level={htmlTag}
-              hideLinkButton={htmlTag === "h1"}
+              hideLinkButton={false}
             >
               {children}
             </Heading>
@@ -53,7 +80,7 @@ export default async function Article({ slug }: { slug: string }) {
         options={{
           wrapper: "article",
           overrides: {
-            h1: { component: Wrapper, props: { htmlTag: "h1" } },
+            h1: { component: MetadataSummary },
             h2: { component: Wrapper, props: { htmlTag: "h2" } },
             h3: { component: Wrapper, props: { htmlTag: "h3" } },
             a: { component: Wrapper, props: { htmlTag: "a" } },
