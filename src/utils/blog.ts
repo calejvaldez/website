@@ -57,4 +57,12 @@ export const articlesMetadata: ArticleMetadata[] = [
     tags: [],
     unlisted: true,
   },
+  {
+    slug: "consequences",
+    title: "Face the consequences",
+    timestamp: 1762466105,
+    description:
+      "In this personal post, I open up about my struggles with anxiety, speaking up, and how consequences aren't always bad.",
+    tags: [],
+  },
 ];
