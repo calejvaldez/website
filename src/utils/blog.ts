@@ -55,7 +55,6 @@ export const articlesMetadata: ArticleMetadata[] = [
     title: "A Reminder for 2025 (and Beyond)",
     timestamp: 1735781652,
     tags: [],
-    unlisted: true,
   },
   {
     slug: "consequences",
