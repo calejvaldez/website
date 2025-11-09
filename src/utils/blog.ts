@@ -55,6 +55,7 @@ export const articlesMetadata: ArticleMetadata[] = [
     title: "A Reminder for 2025 (and Beyond)",
     timestamp: 1735781652,
     tags: [],
+    unlisted: true,
   },
   {
     slug: "consequences",
@@ -63,5 +64,6 @@ export const articlesMetadata: ArticleMetadata[] = [
     description:
       "In this personal post, I open up about my struggles with anxiety, speaking up, and how consequences aren't always bad.",
     tags: [],
+    unlisted: true,
   },
 ];

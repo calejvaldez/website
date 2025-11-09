@@ -3,7 +3,7 @@ import { ProjectButtonProps } from "@/components/ProjectButton";
 
 export const projectsData: IndexLinkProps[] = [
   {
-    url: "https://ojosproject.org/iris/",
+    url: "https://github.com/ojosproject/iris/releases/latest/",
     img: "https://ojosproject.org/images/iris-v0-summary.png",
     title:
       "Iris: a system to collaboratively care for a patient in palliative care",
