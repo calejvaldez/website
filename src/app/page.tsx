@@ -8,6 +8,7 @@ import IndexLink from "./_components/IndexLink";
 import { fetchArticles } from "@/utils/blog";
 import { metadataWith } from "@/utils/metadata";
 import { projectsData } from "@/utils/projects";
+import Link from "next/link";
 
 export const metadata = metadataWith(
   "Carlos Valdez, full-stack developer in California",
@@ -36,6 +37,9 @@ export default async function Home() {
               based on the needs of a project. I focus on solutions that
               prioritize a user's experience and security.
             </p>
+            <Link href="/card/">
+              <button>See My Work</button>
+            </Link>
             {/*<p>
               I also like capybaras,{" "}
               <Link href="/media">tv shows, and movies</Link>.

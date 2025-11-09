@@ -7,6 +7,8 @@ Carlos Valdez
   --white-hover: #fff4eb;
   --black: #2c2924;
   --blue: #3346ac;
+  --blue-hover: #384dc0;
+  --blue-click: #3f55d6;
   --red: #9a0002;
 
   background-color: var(--white);
@@ -100,4 +102,25 @@ h2 {
 
 h3 {
   font-size: 1.8rem;
+}
+
+button {
+  padding: 0 10px;
+  min-width: 150px;
+  height: 45px;
+  border-radius: 10px;
+  border: none;
+  color: var(--white);
+  background-color: var(--blue);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--blue-hover);
+}
+
+button:active {
+  background-color: var(--blue-click);
 }
