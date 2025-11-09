@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  min-height: 65dvh;
   margin: 20px 0;
 }
 
@@ -40,11 +40,11 @@
 }
 
 .linkContainer {
-  margin: 10px 0;
+  margin: 20px 0;
   color: var(--black);
   background-color: var(--white);
   border-radius: 4px;
-  min-height: 35px;
+  height: 45px;
   width: 100%;
 
   display: flex;
@@ -72,9 +72,5 @@
 @media screen and (max-width: 640px) {
   .content {
     max-width: 80%;
-  }
-
-  .iconContainer {
-    margin: 0 10px;
   }
 }
