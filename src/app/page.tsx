@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <>
-      <section className={styles.aboutContainer}>
+      <section className={styles.aboutContainer} id="about">
         <div className={styles.about}>
           <div className={styles.text}>
             <h1># about carlos</h1>
@@ -48,7 +48,7 @@ export default async function Home() {
           />
         </div>
       </section>
-      <section className={styles.projectsContainer}>
+      <section className={styles.projectsContainer} id="projects">
         <div className={styles.projects}>
           <h2>## my projects</h2>
           {projectsData.map((project) => {
@@ -65,7 +65,7 @@ export default async function Home() {
         </div>
       </section>
       {lastArticle && (
-        <section className={styles.postContainer}>
+        <section className={styles.postContainer} id="posts">
           <div className={styles.post}>
             <h3>### my latest post</h3>
             <IndexLink
