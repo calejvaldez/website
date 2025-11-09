@@ -19,6 +19,9 @@ export default async function Home() {
   const articles = await fetchArticles();
   const listedArticles = articles.filter((a) => !a.unlisted);
   const lastArticle = listedArticles[listedArticles.length - 1];
+  const articleLink = lastArticle.url
+    ? lastArticle.url
+    : `/blog/${lastArticle.slug}/`;
 
   return (
     <>
@@ -69,7 +72,7 @@ export default async function Home() {
           <div className={styles.post}>
             <h3>### my latest post</h3>
             <IndexLink
-              url={`/blog/${lastArticle.slug}`}
+              url={articleLink}
               title={lastArticle.title}
               description={lastArticle.description || "Description not set."}
               timestamp={lastArticle.timestamp}

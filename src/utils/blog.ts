@@ -21,7 +21,8 @@ export async function fetchArticles(): Promise<ArticleMetadata[]> {
 }
 
 export type ArticleMetadata = {
-  slug: string;
+  slug?: string;
+  url?: string;
   title: string;
   timestamp: number;
   tags: string[];
@@ -65,5 +66,13 @@ export const articlesMetadata: ArticleMetadata[] = [
       "In this personal post, I open up about my struggles with anxiety, speaking up, and how consequences aren't always bad.",
     tags: [],
     unlisted: true,
+  },
+  {
+    url: "https://ojosproject.org/news/road-to-iris/",
+    title: "Road to Learning Rust, NextJS, and Tauri",
+    timestamp: 1726642800,
+    description:
+      "Iris has been in development for the entire summer. It's been a slow but steady pace, seeing as how Iris comes with new experiences for the developers. With any new experience, however, there are challenges. In this more technical news post, learn about how the team managed to get around working with the Rust programming language, NextJS, and Tauri!",
+    tags: [],
   },
 ];

@@ -17,11 +17,19 @@ export const metadata = metadataWith(
 );
 
 function BlogButton({ article }: { article: ArticleMetadata }) {
+  const articleLink = article.url ? article.url : `/blog/${article.slug}/`;
+
   return (
     <li>
       <p>
         {timestampToString(article.timestamp)}:{" "}
-        <Link href={`/blog/${article.slug}/`}>{article.title}</Link>
+        <Link
+          href={articleLink}
+          target={article.url ? "_blank" : undefined}
+          rel={article.url ? "noreferrer noopener" : undefined}
+        >
+          {article.title}
+        </Link>
       </p>
     </li>
   );
@@ -42,7 +50,12 @@ export default async function BlogIndex() {
             .filter((article) => !article.unlisted)
             .sort((a, b) => b.timestamp - a.timestamp)
             .map((article) => {
-              return <BlogButton key={article.slug} article={article} />;
+              return (
+                <BlogButton
+                  key={article.slug || article.url}
+                  article={article}
+                />
+              );
             })}
         </ul>
       </div>

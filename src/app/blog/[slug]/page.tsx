@@ -9,9 +9,11 @@ import { metadataWith } from "@/utils/metadata";
 import styles from "./page.module.css";
 
 export async function generateStaticParams() {
-  return articlesMetadata.map((article) => ({
-    slug: article.slug,
-  }));
+  return articlesMetadata
+    .filter((article) => article.slug)
+    .map((article) => ({
+      slug: article.slug,
+    }));
 }
 
 type generateMetadataProps = {
