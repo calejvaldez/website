@@ -29,7 +29,7 @@ export default async function Home() {
       <section className={styles.aboutContainer} id="about">
         <div className={styles.about}>
           <div className={styles.text}>
-            <h1># about carlos</h1>
+            <h1># About Carlos</h1>
             <p>
               I'm Carlos, a software developer based in Irvine, California! I'm
               a passionate full-stack developer with a background in
@@ -57,7 +57,7 @@ export default async function Home() {
       </section>
       <section className={styles.projectsContainer} id="projects">
         <div className={styles.projects}>
-          <h2>## my projects</h2>
+          <h2>## My Projects</h2>
           {projectsData.map((project) => {
             return (
               <IndexLink
@@ -74,7 +74,7 @@ export default async function Home() {
       {lastArticle && (
         <section className={styles.postContainer} id="posts">
           <div className={styles.post}>
-            <h3>### my latest post</h3>
+            <h3>### My Latest Post</h3>
             <IndexLink
               url={articleLink}
               title={lastArticle.title}
