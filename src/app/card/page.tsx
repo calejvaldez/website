@@ -20,9 +20,9 @@ type LinkObject = {
 };
 
 export const metadata = metadataWith(
-  "Links | Carlos Valdez",
-  "Here are some places you can find me online!",
-  "https://calejvaldez.com/links/",
+  "My Card | Carlos Valdez",
+  "Here are some places you can find me online! Carlos Valdez is a passionate full-stack developer with a background in human-computer interaction. He focuses on solutions that prioritize a user's experience and security.",
+  "https://calejvaldez.com/card/",
 );
 
 export default function Page() {
@@ -37,8 +37,8 @@ export default function Page() {
     },
     {
       key: "github",
-      label: "View My GitHub Projects",
-      url: "https://github.com/calejvaldez?tab=repositories",
+      label: "GitHub Projects",
+      url: "https://github.com/calejvaldez/",
       icon: <Github />,
       bold: true,
     },
@@ -49,20 +49,20 @@ export default function Page() {
       icon: <Laptop />,
     },
     {
-      key: "blog",
-      label: "My Technical Blog",
-      url: "/blog",
-      icon: <JournalPage />,
-    },
-    {
       key: "linkedin",
       label: "LinkedIn Profile",
       url: "https://linkedin.com/in/calejvaldez/",
       icon: <Linkedin />,
     },
     {
+      key: "blog",
+      label: "Technical Blog",
+      url: "/blog",
+      icon: <JournalPage />,
+    },
+    {
       key: "email",
-      label: "Let's Connect!",
+      label: "Email Me",
       url: "mailto:self@calejvaldez.com",
       icon: <Mail />,
     },
@@ -78,7 +78,8 @@ export default function Page() {
           height={imageSize}
         />
         <h2>Carlos Valdez</h2>
-        <p>Full-Stack Developer</p>
+        <p>Full Stack Developer</p>
+        <p>Building reliable, human-centered apps</p>
         <ul className={styles.list}>
           {links.map((link) => {
             return (
