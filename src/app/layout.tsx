@@ -27,7 +27,7 @@ export default function RootLayout({
           </Link>
           <ul>
             <li>
-              <Link href="/links">Links</Link>
+              <Link href="/documents/resume.pdf">Resume</Link>
             </li>
           </ul>
         </header>
