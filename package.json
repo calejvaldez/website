@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "start": "next start",
     "serve": "serve out",
     "clear": "node scripts/clear.js",
     "prettier": "prettier --write \"**/*.{js,ts,tsx,json,yaml}\""

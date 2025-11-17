@@ -1,10 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
   trailingSlash: true,
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "gravatar.com" },
+      { protocol: "https", hostname: "ojosproject.org" },
+      { protocol: "https", hostname: "raw.githubusercontent.com" },
+    ],
   },
 };
 
