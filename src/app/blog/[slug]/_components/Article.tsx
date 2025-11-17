@@ -1,4 +1,4 @@
-import { timestampToString } from "@/utils/parsing";
+import { timestampToString } from "@/utils/time";
 import { CSSProperties, ReactNode } from "react";
 import Markdown from "markdown-to-jsx";
 import Heading from "@/components/Heading";

@@ -21,3 +21,8 @@ export function timestampToString(timestamp: number, long?: boolean): string {
     return `${date.getFullYear().toString().slice(2, 4)}-${date.getMonth() + 1}-${date.getDate()}`;
   }
 }
+
+export function generateTimestamp() {
+  const date = new Date();
+  return Math.round(date.getTime() / 1000);
+}

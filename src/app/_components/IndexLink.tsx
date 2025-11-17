@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./IndexLink.module.css";
 import Image from "next/image";
-import { timestampToString } from "@/utils/parsing";
+import { timestampToString } from "@/utils/time";
 
 export type IndexLinkProps = {
   img?: string;

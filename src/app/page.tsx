@@ -7,7 +7,7 @@ import Image from "next/image";
 import IndexLink from "./_components/IndexLink";
 import { fetchArticles } from "@/utils/blog";
 import { metadataWith } from "@/utils/metadata";
-import { projectsData } from "@/utils/projects";
+import { fetchProjects } from "@/utils/projects";
 import Link from "next/link";
 
 export const metadata = metadataWith(
@@ -18,11 +18,9 @@ export const metadata = metadataWith(
 
 export default async function Home() {
   const articles = await fetchArticles();
+  const projects = await fetchProjects();
   const listedArticles = articles.filter((a) => !a.unlisted);
   const lastArticle = listedArticles[listedArticles.length - 1];
-  const articleLink = lastArticle.url
-    ? lastArticle.url
-    : `/blog/${lastArticle.slug}/`;
 
   return (
     <>
@@ -58,7 +56,7 @@ export default async function Home() {
       <section className={styles.projectsContainer} id="projects">
         <div className={styles.projects}>
           <h2>## My Projects</h2>
-          {projectsData.map((project) => {
+          {projects.map((project) => {
             return (
               <IndexLink
                 key={project.url}
@@ -76,7 +74,9 @@ export default async function Home() {
           <div className={styles.post}>
             <h3>### My Latest Post</h3>
             <IndexLink
-              url={articleLink}
+              url={
+                lastArticle.url ? lastArticle.url : `/blog/${lastArticle.slug}/`
+              }
               title={lastArticle.title}
               description={lastArticle.description || "Description not set."}
               timestamp={lastArticle.timestamp}

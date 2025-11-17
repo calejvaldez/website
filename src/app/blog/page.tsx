@@ -2,9 +2,8 @@
 blog/page.tsx
 Carlos Valdez
 */
-import { articlesMetadata } from "@/utils/blog";
-import { timestampToString } from "@/utils/parsing";
-import { ArticleMetadata } from "@/utils/blog";
+import { fetchArticles } from "@/utils/blog";
+import { timestampToString } from "@/utils/time";
 import Link from "next/link";
 import { metadataWith } from "@/utils/metadata";
 import styles from "./page.module.css";
@@ -16,7 +15,7 @@ export const metadata = metadataWith(
   "https://calejvaldez.com/blog/",
 );
 
-function BlogButton({ article }: { article: ArticleMetadata }) {
+function BlogButton({ article }: { article: any }) {
   const articleLink = article.url ? article.url : `/blog/${article.slug}/`;
 
   return (
@@ -46,17 +45,11 @@ export default async function BlogIndex() {
           </p>
         </TitleCard>
         <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-          {articlesMetadata
-            .filter((article) => !article.unlisted)
-            .sort((a, b) => b.timestamp - a.timestamp)
-            .map((article) => {
-              return (
-                <BlogButton
-                  key={article.slug || article.url}
-                  article={article}
-                />
-              );
-            })}
+          {(await fetchArticles()).map((article) => {
+            return (
+              <BlogButton key={article.slug || article.url} article={article} />
+            );
+          })}
         </ul>
       </div>
     </section>

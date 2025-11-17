@@ -2,14 +2,14 @@
 blog/[slug]/page.tsx
 Carlos Valdez
 */
-import { fetchArticleMetadata, articlesMetadata } from "@/utils/blog";
+import { fetchArticleMetadata, fetchArticles } from "@/utils/blog";
 import Article from "./_components/Article";
 import { Metadata, ResolvingMetadata } from "next";
 import { metadataWith } from "@/utils/metadata";
 import styles from "./page.module.css";
 
 export async function generateStaticParams() {
-  return articlesMetadata
+  return (await fetchArticles())
     .filter((article) => article.slug)
     .map((article) => ({
       slug: article.slug,
@@ -25,7 +25,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const slug = (await params).slug;
-  const articleMetadata = await fetchArticleMetadata(slug);
+  const articleMetadata: any = await fetchArticleMetadata(slug);
 
   return metadataWith(
     `${articleMetadata.title} | Carlos Valdez`,

@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BlogMetadata {
+  id          String  @id @unique
+  slug        String?
+  url         String?
+  title       String
+  timestamp   Int
+  tags        String[]
+  description String?
+  unlisted    Boolean @default(false)
+}
+
+model PortfolioProjects {
+  id            String @id @unique
+  index         Int?
+  url           String
+  img           String
+  title         String
+  description   String
+}
