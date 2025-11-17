@@ -2,17 +2,17 @@
 blog/[slug]/page.tsx
 Carlos Valdez
 */
-import { fetchArticleMetadata, fetchArticles } from "@/utils/blog";
-import Article from "./_components/Article";
+import { fetchPostMetadata, fetchPosts } from "@/utils/blog";
+import Post from "./_components/Post";
 import { Metadata, ResolvingMetadata } from "next";
 import { metadataWith } from "@/utils/metadata";
 import styles from "./page.module.css";
 
 export async function generateStaticParams() {
-  return (await fetchArticles())
-    .filter((article) => article.slug)
-    .map((article) => ({
-      slug: article.slug,
+  return (await fetchPosts())
+    .filter((post) => post.slug)
+    .map((post) => ({
+      slug: post.slug,
     }));
 }
 
@@ -25,12 +25,12 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const slug = (await params).slug;
-  const articleMetadata: any = await fetchArticleMetadata(slug);
+  const postMetadata: any = await fetchPostMetadata(slug);
 
   return metadataWith(
-    `${articleMetadata.title} | Carlos Valdez`,
-    `${articleMetadata.description ? articleMetadata.description : `Read "${articleMetadata.title}" on Carlos' /blog!`}\n\nCarlos Valdez is a passionate full-stack developer with a background in human-computer interaction. He focuses on solutions that prioritize a user's experience and security.`,
-    `https://calejvaldez.com/blog/${articleMetadata.slug}/`,
+    `${postMetadata.title} | Carlos Valdez`,
+    `${postMetadata.description ? postMetadata.description : `Read "${postMetadata.title}" on Carlos' /blog!`}\n\nCarlos Valdez is a passionate full-stack developer with a background in human-computer interaction. He focuses on solutions that prioritize a user's experience and security.`,
+    `https://calejvaldez.com/blog/${postMetadata.slug}/`,
   );
 }
 
@@ -41,9 +41,9 @@ export default async function BlogWrapper({
 }) {
   const { slug } = await params;
   return (
-    <section className={styles.articleContainer}>
-      <div className={styles.articleContent}>
-        <Article slug={slug} />
+    <section className={styles.postContainer}>
+      <div className={styles.postContent}>
+        <Post slug={slug} />
       </div>
     </section>
   );

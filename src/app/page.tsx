@@ -5,7 +5,7 @@ Carlos Valdez
 import styles from "./page.module.css";
 import Image from "next/image";
 import IndexLink from "./_components/IndexLink";
-import { fetchArticles } from "@/utils/blog";
+import { fetchPosts } from "@/utils/blog";
 import { metadataWith } from "@/utils/metadata";
 import { fetchProjects } from "@/utils/projects";
 import Link from "next/link";
@@ -17,10 +17,10 @@ export const metadata = metadataWith(
 );
 
 export default async function Home() {
-  const articles = await fetchArticles();
+  const posts = await fetchPosts();
   const projects = await fetchProjects();
-  const listedArticles = articles.filter((a) => !a.unlisted);
-  const lastArticle = listedArticles[listedArticles.length - 1];
+  const listedPosts = posts.filter((post) => !post.unlisted);
+  const lastPost = listedPosts[0];
 
   return (
     <>
@@ -69,17 +69,15 @@ export default async function Home() {
           })}
         </div>
       </section>
-      {lastArticle && (
+      {lastPost && (
         <section className={styles.postContainer} id="posts">
           <div className={styles.post}>
             <h3>### My Latest Post</h3>
             <IndexLink
-              url={
-                lastArticle.url ? lastArticle.url : `/blog/${lastArticle.slug}/`
-              }
-              title={lastArticle.title}
-              description={lastArticle.description || "Description not set."}
-              timestamp={lastArticle.timestamp}
+              url={lastPost.url ? lastPost.url : `/blog/${lastPost.slug}/`}
+              title={lastPost.title}
+              description={lastPost.description || "Description not set."}
+              timestamp={lastPost.timestamp}
             />
           </div>
         </section>

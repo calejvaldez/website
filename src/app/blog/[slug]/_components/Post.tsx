@@ -3,14 +3,14 @@ import { CSSProperties, ReactNode } from "react";
 import Markdown from "markdown-to-jsx";
 import Heading from "@/components/Heading";
 import Link from "next/link";
-import { fetchArticle, fetchArticleMetadata } from "@/utils/blog";
-import styles from "./Article.module.css";
+import { fetchPost, fetchPostMetadata } from "@/utils/blog";
+import styles from "./Post.module.css";
 import Image from "next/image";
 import TitleCard from "@/components/TitleCard";
 
-export default async function Article({ slug }: { slug: string }) {
-  const articleMetadata = await fetchArticleMetadata(slug);
-  const markdown = await fetchArticle(slug);
+export default async function Post({ slug }: { slug: string }) {
+  const postMetadata = await fetchPostMetadata(slug);
+  const markdown = await fetchPost(slug);
   const metadataStyle: CSSProperties = { color: "grey", fontSize: "14px" };
 
   function MetadataSummary({ children }: { children: string }) {
@@ -18,7 +18,7 @@ export default async function Article({ slug }: { slug: string }) {
       <>
         <TitleCard title={children}>
           <>
-            <p>{timestampToString(articleMetadata.timestamp, true)}</p>
+            <p>{timestampToString(postMetadata.timestamp, true)}</p>
             <div className={styles.author}>
               <Image
                 src="https://gravatar.com/avatar/41bb2938e02bf5326eb6b82ec02d919ca97cf68b376c4c5769fbba4acc85a190?s=350"
@@ -75,7 +75,7 @@ export default async function Article({ slug }: { slug: string }) {
 
   return (
     <>
-      <Link href="/blog">{"< "}Blog articles</Link>
+      <Link href="/blog">{"< "}Blog posts</Link>
       <Markdown
         options={{
           wrapper: "article",
@@ -91,7 +91,7 @@ export default async function Article({ slug }: { slug: string }) {
       </Markdown>
 
       <span style={metadataStyle}>
-        {timestampToString(articleMetadata.timestamp, true)}
+        {timestampToString(postMetadata.timestamp, true)}
       </span>
       <br />
       <span style={metadataStyle}>
@@ -99,7 +99,7 @@ export default async function Article({ slug }: { slug: string }) {
       </span>
       <br />
       <span style={metadataStyle}>
-        Download: <a href={`/content/${articleMetadata.slug}.md`}>Markdown</a>
+        Download: <a href={`/content/${postMetadata.slug}.md`}>Markdown</a>
       </span>
     </>
   );

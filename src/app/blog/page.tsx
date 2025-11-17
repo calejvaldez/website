@@ -2,7 +2,7 @@
 blog/page.tsx
 Carlos Valdez
 */
-import { fetchArticles } from "@/utils/blog";
+import { fetchPosts } from "@/utils/blog";
 import { timestampToString } from "@/utils/time";
 import Link from "next/link";
 import { metadataWith } from "@/utils/metadata";
@@ -15,19 +15,19 @@ export const metadata = metadataWith(
   "https://calejvaldez.com/blog/",
 );
 
-function BlogButton({ article }: { article: any }) {
-  const articleLink = article.url ? article.url : `/blog/${article.slug}/`;
+function BlogButton({ post }: { post: any }) {
+  const postLink = post.url ? post.url : `/blog/${post.slug}/`;
 
   return (
     <li>
       <p>
-        {timestampToString(article.timestamp)}:{" "}
+        {timestampToString(post.timestamp)}:{" "}
         <Link
-          href={articleLink}
-          target={article.url ? "_blank" : undefined}
-          rel={article.url ? "noreferrer noopener" : undefined}
+          href={postLink}
+          target={post.url ? "_blank" : undefined}
+          rel={post.url ? "noreferrer noopener" : undefined}
         >
-          {article.title}
+          {post.title}
         </Link>
       </p>
     </li>
@@ -35,7 +35,7 @@ function BlogButton({ article }: { article: any }) {
 }
 
 export default async function BlogIndex() {
-  const posts = (await fetchArticles()).filter((post) => !post.unlisted);
+  const posts = (await fetchPosts()).filter((post) => !post.unlisted);
 
   return (
     <section className={styles.blogContainer}>
@@ -47,10 +47,8 @@ export default async function BlogIndex() {
           </p>
         </TitleCard>
         <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-          {posts.map((article) => {
-            return (
-              <BlogButton key={article.slug || article.url} article={article} />
-            );
+          {posts.map((post) => {
+            return <BlogButton key={post.slug || post.url} post={post} />;
           })}
         </ul>
       </div>

@@ -4,7 +4,7 @@ import { PrismaClient } from "@/generated/prisma/client";
 import { randomUUID } from "crypto";
 import { generateTimestamp } from "./time";
 
-export async function fetchArticleMetadata(slug: string) {
+export async function fetchPostMetadata(slug: string) {
   const prisma = new PrismaClient();
   const blogPost = await prisma.blogMetadata.findFirst({
     where: { slug: slug },
@@ -13,20 +13,20 @@ export async function fetchArticleMetadata(slug: string) {
   return blogPost!;
 }
 
-export async function fetchArticle(slug: string): Promise<string> {
+export async function fetchPost(slug: string): Promise<string> {
   //const response = await fetch(`https://calejvaldez.com/content/${slug}.md`);
   //return response.text();
   const filePath = path.join(process.cwd(), "public", "content", `${slug}.md`);
   return fs.readFileSync(filePath, "utf-8");
 }
 
-export async function fetchArticles() {
+export async function fetchPosts() {
   const prisma = new PrismaClient();
   const blogPosts = await prisma.blogMetadata.findMany();
   return blogPosts.sort((a, b) => b.timestamp - a.timestamp);
 }
 
-export async function createArticle(
+export async function createPost(
   title: string,
   description: string,
   unlisted = false,
