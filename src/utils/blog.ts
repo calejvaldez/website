@@ -23,7 +23,7 @@ export async function fetchArticle(slug: string): Promise<string> {
 export async function fetchArticles() {
   const prisma = new PrismaClient();
   const blogPosts = await prisma.blogMetadata.findMany();
-  return blogPosts.sort((a, b) => a.timestamp - b.timestamp);
+  return blogPosts.sort((a, b) => b.timestamp - a.timestamp);
 }
 
 export async function createArticle(

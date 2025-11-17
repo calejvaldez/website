@@ -35,6 +35,8 @@ function BlogButton({ article }: { article: any }) {
 }
 
 export default async function BlogIndex() {
+  const posts = (await fetchArticles()).filter((post) => !post.unlisted);
+
   return (
     <section className={styles.blogContainer}>
       <div className={styles.blogContent}>
@@ -45,7 +47,7 @@ export default async function BlogIndex() {
           </p>
         </TitleCard>
         <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-          {(await fetchArticles()).map((article) => {
+          {posts.map((article) => {
             return (
               <BlogButton key={article.slug || article.url} article={article} />
             );
