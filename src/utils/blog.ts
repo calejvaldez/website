@@ -1,11 +1,10 @@
 import path from "path";
 import fs from "fs";
-import { PrismaClient } from "@/generated/prisma/client";
 import { randomUUID } from "crypto";
 import { generateTimestamp } from "./time";
+import { prisma } from "@/prisma";
 
 export async function fetchPostMetadata(slug: string) {
-  const prisma = new PrismaClient();
   const blogPost = await prisma.blogMetadata.findFirst({
     where: { slug: slug },
   });
@@ -21,7 +20,6 @@ export async function fetchPost(slug: string): Promise<string> {
 }
 
 export async function fetchPosts() {
-  const prisma = new PrismaClient();
   const blogPosts = await prisma.blogMetadata.findMany();
   return blogPosts.sort((a, b) => b.timestamp - a.timestamp);
 }
@@ -37,7 +35,6 @@ export async function createPost(
     throw new Error("slug or url is expected. Where is the blog post located?");
   }
 
-  const prisma = new PrismaClient();
   const id = randomUUID();
   const ts = generateTimestamp();
 
