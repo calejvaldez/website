@@ -57,3 +57,31 @@
 .projects h2 {
   color: var(--white);
 }
+
+.adminContainer {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  margin-bottom: 50px;
+
+  background-color: var(--black);
+}
+
+.helloAdmin {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.adminContainer h1,
+.adminContainer p {
+  color: var(--white);
+  margin: 0;
+}
+
+.helloAdmin img {
+  margin: 10px;
+  border-radius: 100%;
+}

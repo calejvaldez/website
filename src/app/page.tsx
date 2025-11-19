@@ -9,6 +9,7 @@ import { fetchPosts } from "@/utils/blog";
 import { metadataWith } from "@/utils/metadata";
 import { fetchProjects } from "@/utils/projects";
 import Link from "next/link";
+import { auth } from "@/auth";
 
 export const metadata = metadataWith(
   "Carlos Valdez, full-stack developer in California",
@@ -21,9 +22,27 @@ export default async function Home() {
   const projects = await fetchProjects();
   const listedPosts = posts.filter((post) => !post.unlisted);
   const lastPost = listedPosts[0];
+  const session = await auth();
 
   return (
     <>
+      {session?.user && session.user.id === process.env.ADMIN_ID && (
+        <section className={styles.adminContainer}>
+          <div>
+            <span className={styles.helloAdmin}>
+              {session.user.image && (
+                <Image
+                  src={session.user.image}
+                  width={50}
+                  height={50}
+                  alt="Website admin's Discord profile picture."
+                />
+              )}
+              <h1>Welcome home, {session.user.name}.</h1>
+            </span>
+          </div>
+        </section>
+      )}
       <section className={styles.aboutContainer} id="about">
         <div className={styles.about}>
           <div className={styles.text}>
