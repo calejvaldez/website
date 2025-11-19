@@ -7,7 +7,8 @@ export default async function Page({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const redirectTo = (await searchParams).redirect?.toString();
+  const rawRedirect = (await searchParams).redirect;
+  const redirectTo = !rawRedirect ? "/" : rawRedirect.toString();
 
   return (
     <section className={styles.container}>
