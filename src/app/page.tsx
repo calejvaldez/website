@@ -10,6 +10,7 @@ import { metadataWith } from "@/utils/metadata";
 import { fetchProjects } from "@/utils/projects";
 import Link from "next/link";
 import { auth } from "@/auth";
+import { Folder } from "iconoir-react";
 
 export const metadata = metadataWith(
   "Carlos Valdez, full-stack developer in California",
@@ -28,7 +29,7 @@ export default async function Home() {
     <>
       {session?.user && session.user.id === process.env.ADMIN_ID && (
         <section className={styles.adminContainer}>
-          <div>
+          <div className={styles.admin}>
             <span className={styles.helloAdmin}>
               {session.user.image && (
                 <Image
@@ -40,6 +41,71 @@ export default async function Home() {
               )}
               <h1>Welcome home, {session.user.name}.</h1>
             </span>
+            <p>Let's build our future. Make yourself proud. :3</p>
+            <ul className={styles.adminList}>
+              <li>
+                <Link
+                  href="https://www.icloud.com/calendar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className={styles.iconText}>
+                    <Folder /> Calendar
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.icloud.com/reminders/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className={styles.iconText}>
+                    <Folder /> Reminders
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.linkedin.com/jobs/search/?f_TPR=r3600&origin=JOB_SEARCH_PAGE_JOB_FILTER"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className={styles.iconText}>
+                    <Folder /> LinkedIn
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.icloud.com/notes/note/UHJpdmF0ZTo6Tm90ZXM6OmN1cnJlbnRVc2VyOjpmMzA4ZWU3MS0zODU1LTRlZjYtOWEwZC1iYTU3NDM3M2YxMDI="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className={styles.iconText}>
+                    <Folder /> My Goals
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://open.spotify.com/playlist/1v4bZ5udrQzVsHThARiVAd/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className={styles.iconText}>
+                    <Folder /> Personal Playlist
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/consequences/">
+                  <span className={styles.iconText}>
+                    <Folder /> Consequences
+                  </span>
+                </Link>
+              </li>
+            </ul>
           </div>
         </section>
       )}
