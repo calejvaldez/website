@@ -67,7 +67,7 @@ export default async function Home() {
               </li>
               <li>
                 <Link
-                  href="https://www.linkedin.com/jobs/search/?f_TPR=r3600&origin=JOB_SEARCH_PAGE_JOB_FILTER"
+                  href="https://www.linkedin.com/jobs/search/?distance=25&f_TPR=r3600&f_WT=1%2C3%2C2&geoId=105621717&keywords=software%20developer&sortBy=R"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
