@@ -56,7 +56,7 @@ export default function RootLayout({
             </li>
             <li>
               <Link
-                href="mailto:self@calejvaldez.com"
+                href="mailto:carlos@vldz.tech"
                 target="_blank"
                 rel="noreferrer opener"
               >

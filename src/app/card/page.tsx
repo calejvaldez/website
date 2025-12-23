@@ -63,7 +63,7 @@ export default function Page() {
     {
       key: "email",
       label: "Email Me",
-      url: "mailto:self@calejvaldez.com",
+      url: "mailto:carlos@vldz.tech",
       icon: <Mail />,
     },
   ];
