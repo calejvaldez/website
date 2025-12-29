@@ -7,8 +7,8 @@ import Image from "next/image";
 import IndexLink from "./_components/IndexLink";
 import { fetchArticles } from "@/utils/blog";
 import { metadataWith } from "@/utils/metadata";
-import { projectsData } from "@/utils/projects";
 import Link from "next/link";
+import { getProjects } from "@/utils/projects";
 
 export const metadata = metadataWith(
   "Carlos Valdez, full-stack developer in California",
@@ -23,6 +23,7 @@ export default async function Home() {
   const articleLink = lastArticle.url
     ? lastArticle.url
     : `/blog/${lastArticle.slug}/`;
+  const projects = await getProjects();
 
   return (
     <>
@@ -58,12 +59,12 @@ export default async function Home() {
       <section className={styles.projectsContainer} id="projects">
         <div className={styles.projects}>
           <h2>## My Projects</h2>
-          {projectsData.map((project) => {
+          {projects.map((project) => {
             return (
               <IndexLink
-                key={project.url}
-                url={project.url}
-                img={project.img}
+                key={project.id}
+                url={project.promoteUrl!}
+                img={project.imageUrl}
                 title={project.title}
                 description={project.description}
               />
