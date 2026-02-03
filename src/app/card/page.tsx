@@ -1,14 +1,7 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import Image from "next/image";
-import {
-  Attachment,
-  Github,
-  JournalPage,
-  Laptop,
-  Linkedin,
-  Mail,
-} from "iconoir-react";
+import { Attachment, Github, Linkedin, Mail } from "iconoir-react";
 import { metadataWith } from "@/utils/metadata";
 
 type LinkObject = {
@@ -22,7 +15,7 @@ type LinkObject = {
 export const metadata = metadataWith(
   "My Card | Carlos Valdez",
   "Here are some places you can find me online! Carlos Valdez is a passionate full-stack developer with a background in human-computer interaction. He focuses on solutions that prioritize a user's experience and security.",
-  "https://calejvaldez.com/card/",
+  "https://carlos.vldz.tech/card/",
 );
 
 export default function Page() {
@@ -33,36 +26,22 @@ export default function Page() {
       label: "Download Resume (PDF)",
       url: "/documents/resume.pdf",
       icon: <Attachment />,
-      bold: true,
     },
     {
       key: "github",
-      label: "GitHub Projects",
+      label: "My code / GitHub",
       url: "https://github.com/calejvaldez/",
       icon: <Github />,
-      bold: true,
-    },
-    {
-      key: "projects",
-      label: "Live Projects / Demos",
-      url: "/#projects",
-      icon: <Laptop />,
     },
     {
       key: "linkedin",
-      label: "LinkedIn Profile",
+      label: "Connect with me",
       url: "https://linkedin.com/in/calejvaldez/",
       icon: <Linkedin />,
     },
     {
-      key: "blog",
-      label: "Technical Blog",
-      url: "/blog",
-      icon: <JournalPage />,
-    },
-    {
       key: "email",
-      label: "Email Me",
+      label: "carlos@vldz.tech",
       url: "mailto:carlos@vldz.tech",
       icon: <Mail />,
     },
@@ -78,8 +57,7 @@ export default function Page() {
           height={imageSize}
         />
         <h2>Carlos Valdez</h2>
-        <p>Full Stack Developer</p>
-        <p>Building reliable, human-centered apps</p>
+        <p>Full Stack Developer | UX Designer</p>
         <ul className={styles.list}>
           {links.map((link) => {
             return (

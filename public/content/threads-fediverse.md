@@ -3,7 +3,7 @@ Credit
 
 Author: Carlos Valdez
 License: Creative Commons Attribution 4.0 International
-Metadata: https://calejvaldez.com/content/metadata.json
+Metadata: https://carlos.vldz.tech/content/metadata.json
 
 -->
 # Tangled Threads in the Fediverse

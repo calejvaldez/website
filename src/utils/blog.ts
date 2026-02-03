@@ -10,8 +10,6 @@ export async function fetchArticleMetadata(
 }
 
 export async function fetchArticle(slug: string): Promise<string> {
-  //const response = await fetch(`https://calejvaldez.com/content/${slug}.md`);
-  //return response.text();
   const filePath = path.join(process.cwd(), "public", "content", `${slug}.md`);
   return fs.readFileSync(filePath, "utf-8");
 }

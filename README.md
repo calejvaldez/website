@@ -3,7 +3,7 @@
 ## Description
 
 This is the source code for my website,
-[calejvaldez.com](https://calejvaldez.com/). It's meant to act as my portfolio.
+[calejvaldez.com](https://carlos.vldz.tech/). It's meant to act as my portfolio.
 
 ## Blogging
 
@@ -42,7 +42,7 @@ Markdown to HTML for you to read!
 > 
 > Author: Carlos Valdez
 > License: Creative Commons Attribution 4.0 International
-> Metadata: https://calejvaldez.com/content/metadata.json
+> Metadata: https://carlos.vldz.tech/content/metadata.json
 > 
 > -->
 > ```

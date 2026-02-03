@@ -9,7 +9,7 @@ import { metadataWith } from "@/utils/metadata";
 export const metadata = metadataWith(
   "404 | Carlos Valdez",
   "This page was not found.\n\nCarlos Valdez is a passionate full-stack developer with a background in human-computer interaction. He focuses on solutions that prioritize a user's experience and security.",
-  "https://calejvaldez.com/",
+  "https://carlos.vldz.tech/",
 );
 
 export default function NotFound() {
