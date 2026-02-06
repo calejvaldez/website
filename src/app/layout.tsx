@@ -2,13 +2,18 @@
 layout.tsx
 Carlos Valdez
 */
-import { Source_Sans_3 } from "next/font/google";
+import { Nunito, Lora } from "next/font/google";
 import "./globals.css";
 
-const sourceSansPro = Source_Sans_3({
+const nunito = Nunito({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
 });
 
 export default function RootLayout({
@@ -18,9 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sourceSansPro.className}`}>
-        {children}
-      </body>
+      <body className={`${nunito.className}`}>{children}</body>
     </html>
   );
 }

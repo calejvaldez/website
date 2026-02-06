@@ -23,7 +23,7 @@ export default function Page() {
   const links: LinkObject[] = [
     {
       key: "resume",
-      label: "Download Resume (PDF)",
+      label: "Download resume.pdf",
       url: "/documents/resume.pdf",
       icon: <Attachment />,
     },
