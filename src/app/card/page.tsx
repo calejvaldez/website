@@ -13,8 +13,8 @@ type LinkObject = {
 };
 
 export const metadata = metadataWith(
-  "My Card | Carlos Valdez",
-  "Here are some places you can find me online! Carlos Valdez is a passionate full-stack developer with a background in human-computer interaction. He focuses on solutions that prioritize a user's experience and security.",
+  "Carlos Valdez, full-stack developer in California",
+  "Carlos Valdez is a passionate full-stack developer with a background in human-computer interaction. He focuses on solutions that prioritize a user's experience and security.",
   "https://carlos.vldz.tech/card/",
 );
 
